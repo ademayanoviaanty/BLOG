@@ -1,6 +1,7 @@
 @extends('landing-page')
 
 @section('content')
+
 <!-- Hero Section -->
     <section id="hero" class="hero section">
 
@@ -25,7 +26,7 @@
 
     </section><!-- /Hero Section -->
 
-x
+
     <!-- Recent Blog Posts Section -->
     <section id="recent-blog-posts" class="recent-blog-posts section">
 

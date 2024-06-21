@@ -8,11 +8,14 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::where('published', true)->orderBy('created_at', 'desc')->get();
+        $keyword = $request->keyword;
+        $posts = Post::where('title', 'LIKE', '%'.$keyword.'%')
+        ->where('published', true)
+        ->orderBy('created_at', 'desc')
+        ->get();
         $title = 'Home';
-        $carouselItems = Post::all(); // Mengambil semua item carousel dari database
         return view('layouts.index', compact('posts', 'title'));
     }
 

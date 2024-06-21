@@ -23,6 +23,8 @@ class CategoryResource extends Resource
 
     protected static ?string $modelLabel = 'Categorie';
 
+    protected static ?string $navigationGroup = "Blog";
+
     public static function form(Form $form): Form
     {
         return $form
