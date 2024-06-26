@@ -25,33 +25,31 @@
             <section id="recent-blog-posts" class="recent-blog-posts section">
                 <div class="container">
                   <div class="row gy-5">
-                    @foreach ($posts as $post)
+                    @foreach ($posts as $posts)
                     <div class="col-xl-4 col-md-6">
                       <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
 
                         <!-- Post Image -->
                         <div class="post-img position-relative overflow-hidden">
-                          <img src="{{ Storage::url($post->thumbnail) }}" class="img-fluid post-thumbnail" alt="">
+                          <img src="{{ Storage::url($posts->thumbnail) }}" class="img-fluid post-thumbnail" alt="">
                           <!-- Displaying post date -->
-                          <span class="post-date">{{ $post->created_at->format('M d, Y') }}</span>
+                          <span class="post-date">{{ $posts->created_at->format('M d, Y') }}</span>
                         </div>
 
                         <!-- Post Content -->
                         <div class="post-content d-flex flex-column">
                           <!-- Post Title -->
-                          <h3 class="post-title">{{ $post->title }}</h3>
+                          <h3 class="post-title">{{ $posts->title }}</h3>
 
                           <!-- Meta information (author and category) -->
                           <div class="meta d-flex align-items-center">
                             <div class="d-flex align-items-center">
                               <i class="bi bi-folder2"></i>
-                              <span class="ps-2">{{ $post->category->name }}</span> <!-- Displaying post category -->
+                              <span class="ps-2">{{ $posts->category->name }}</span> <!-- Displaying post category -->
                             </div>
                           </div>
 
                           <hr>
-                          <a href="/details-{{ $post->slug }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
 
                         </div> <!-- End .post-content -->
 

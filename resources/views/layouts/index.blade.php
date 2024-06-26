@@ -64,6 +64,13 @@
                 <hr>
 
 
+                {{-- @foreach ($posts->tags as $k)
+                {{ $k }}
+                @endforeach --}}
+
+
+                <a href="/details-{{ $post->slug }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+
 
               </div> <!-- End .post-content -->
 

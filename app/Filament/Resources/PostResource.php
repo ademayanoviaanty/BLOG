@@ -63,9 +63,9 @@ class PostResource extends Resource
                             FileUpload::make('thumbnail')->disk('public')->directory('thumbnail'),
                     ])->columnSpan(1),
                     Section::make('Meta')->schema([
-                        TagsInput::make('tags')->required(),
                         Checkbox::make('published')->required(),
                     ])
+
                     // Section::make('Authors')
                     // ->schema([
                     //     Select::make('authors')
@@ -73,6 +73,20 @@ class PostResource extends Resource
                     //     ->relationship('authors', 'name')
                     // ])
                 ]),
+                Select::make('tags')
+                                    ->label('Tags')
+                                    ->relationship('tag', 'name')
+                                    ->multiple()
+                                    ->searchable()
+                                    ->preload()
+                                    ->createOptionForm(function ($component) {
+                                        return [
+                                            TextInput::make('name')
+                                                ->required()
+                                                ->label('Tag Name'),
+                                        ];
+                                    })
+                                    ->columnSpan('full'),
             ])->columns([
                 'default' => 3,
                 'sm' => 3,
@@ -105,7 +119,6 @@ class PostResource extends Resource
                 ->sortable()
                 ->searchable()
                 ->toggleable(),
-                TextColumn::make('tags'),
                 CheckboxColumn::make('published'),
                 TextColumn::make('created_at')
                 ->label('Published On')

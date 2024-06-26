@@ -27,5 +27,11 @@ Route::get('/category-{slug}', [MainController::class, 'category'])->name('post'
 
 Route::get('/details-{slug}', [MainController::class, 'details'])->name('post');
 
+Route::get('/tags-{name}', [MainController::class, 'tags'])->name('post');
+
+Route::get('/search', [MainController::class, 'search']);
+
 Route::get('/contact', [ContactController::class, 'index']);
+
+
 

@@ -6,7 +6,7 @@
 
             <!-- ======= Form Pencarian ======= -->
             <div class="search-form-wrap js-search-form-wrap">
-                <form action="/" method="GET"
+                <form action="/search" method="GET"
                     class="search-form">
                     <span class="icon bi-search"></span>
                     <input type="text"
